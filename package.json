@@ -27,7 +27,9 @@
     "test": "yarn lint && jest src/.*",
     "test:watch": "jest --watch src",
     "prepublishOnly": "yarn build && yarn release && yarn test && yarn e2e",
-    "prepush": "yarn test"
+    "prepush": "yarn test",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -46,17 +48,18 @@
     ]
   },
   "dependencies": {
-    "@braintree/sanitize-url": "^3.1.0",
+    "@braintree/sanitize-url": "^6.0.0",
     "crypto-random-string": "^3.0.1",
-    "d3": "^5.7.0",
+    "d3": "^7.0.0",
     "dagre": "^0.8.4",
     "dagre-d3": "^0.6.4",
     "graphlib": "^2.1.7",
     "he": "^1.2.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "minify": "^4.1.1",
     "moment-mini": "^2.22.1",
-    "scope-css": "^1.2.1"
+    "scope-css": "^1.2.1",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -98,5 +101,6 @@
     "ignore": [
       "babel-core"
     ]
-  }
+  },
+  "snyk": true
 }
